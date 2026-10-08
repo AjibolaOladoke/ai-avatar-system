@@ -5,21 +5,21 @@
 <p><strong>Upload a photo · Clone a voice · Talk to any face in real time</strong></p>
 
 <p>
-  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Stars"/></a>
-  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Forks"/></a>
-  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Issues"/></a>
-  <a href="LICENSE"><img src="https://swifttechco.com" alt="MIT License"/></a>
+  <a href="https://swifttechco.com"></a>
+  <a href="https://swifttechco.com"></a>
+  <a href="https://swifttechco.com"></a>
+  <a href="LICENSE"></a>
 </p>
 
 <p>
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
-  <img src="https://swifttechco.com" />
+  
+  
+  
+  
+  
+  
+  
+  
 </p>
 
 <p>
@@ -226,7 +226,7 @@ Prebuilt images are also published on every release  `ghcr.io/punithvt/ai-avatar
 
 ## Images
 
-[![ai-avatar-system](https://opengraph.githubassets.com/1/https://github.com/PunithVT/ai-avatar-system)](https://www.swifttechco.com)
+[![ai-avatar-system](https://opengraph.githubassets.com/1/PunithVT/ai-avatar-system)](https://www.swifttechco.com)
 
 cd backend
 python -m venv venv && source venv/bin/activate
@@ -760,13 +760,13 @@ MIT © 2026  see [LICENSE](LICENSE) for details.
 **If AvatarAI saves you time or inspires your project, please ⭐ star the repo.**
 
 <a href="https://swifttechco.com">
-  <img src="https://swifttechco.com" />
+  
 </a>
 
 <br/><br/>
 
 <a href="https://swifttechco.com">
-  <img src="https://swifttechco.com" width="600" alt="Star History Chart" />
+  
 </a>
 
 <br/><br/>
