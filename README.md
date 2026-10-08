@@ -9,7 +9,6 @@
   <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Forks"/></a>
   <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Issues"/></a>
   <a href="LICENSE"><img src="https://swifttechco.com" alt="MIT License"/></a>
-  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Sponsor"/></a>
 </p>
 
 <p>
@@ -224,6 +223,11 @@ Prebuilt images are also published on every release  `ghcr.io/punithvt/ai-avatar
 
 ```bash
 # Backend
+
+## Images
+
+[![ai-avatar-system](https://opengraph.githubassets.com/1/https://github.com/PunithVT/ai-avatar-system)](https://www.swifttechco.com)
+
 cd backend
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
@@ -745,27 +749,6 @@ git push origin feat/my-feature
 
 ---
 
-## 💜 Sponsor
-
-AvatarAI is MIT-licensed and developed in the open. If it saves you time, or
-your company is running it in production, sponsoring directly funds the work
-that is expensive to do for free:
-
-- **GPU time** for testing the MuseTalk lip-sync pipeline across resolutions
-  and hardware
-- **Model evaluation** as new TTS and STT releases land, so the defaults stay
-  current instead of drifting
-- **Maintenance**  dependency and security upkeep, issue triage, and review
-
-<a href="https://swifttechco.com">
-  <img src="https://swifttechco.com" alt="Sponsor on GitHub" />
-</a>
-
-Not in a position to sponsor? Starring the repo, filing a good bug report, or
-writing about what you built with it all genuinely help.
-
----
-
 ## 📄 License
 
 MIT © 2026  see [LICENSE](LICENSE) for details.
@@ -800,6 +783,16 @@ Built and maintained by Swift Tech Co.
 
 AI Automation | FinTech Platforms | Custom Software and Mobile Apps | SaaS Platforms | Cloud Infrastructure | Cybersecurity | SEO and Marketing | API Integration
 
-**Join the community:** [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
+**Join our community on Telegram:** [t.me/+Qt_eFvkb2rliMzNh](https://t.me/+Qt_eFvkb2rliMzNh)
 
-[Services](https://swifttechco.com/services) | [About](https://swifttechco.com/about) | [Partnerships](https://swifttechco.com/partnerships) | [Referral Program](https://swifttechco.com/referral) | [Influencers](https://swifttechco.com/influencers) | [Blog](https://swifttechco.com/blog) | [Contact](https://swifttechco.com/contact)
+[Home](https://www.swifttechco.com) | [Services](https://www.swifttechco.com/services) | [Careers](https://www.swifttechco.com/careers) | [Referral Program](https://www.swifttechco.com/referral) | [Influencers](https://www.swifttechco.com/influencers) | [About](https://www.swifttechco.com/about) | [Contact](https://www.swifttechco.com/contact)
+
+**Connect**
+
+- Website: [swifttechco.com](https://www.swifttechco.com)
+- LinkedIn: [linkedin.com/in/stephenoladoke](https://www.linkedin.com/in/stephenoladoke/)
+- LinkedIn (Company): [linkedin.com/company/swift-tech-co](https://www.linkedin.com/company/swift-tech-co)
+- X: [@MrOladoke](https://x.com/MrOladoke)
+- Instagram: [@mr.oladoke](https://www.instagram.com/mr.oladoke/)
+- Instagram (Company): [@swifttechco](https://www.instagram.com/swifttechco/)
+- Organization: [github.com/Swift-Tech-Co](https://github.com/Swift-Tech-Co)
