@@ -5,22 +5,22 @@
 <p><strong>Upload a photo · Clone a voice · Talk to any face in real time</strong></p>
 
 <p>
-  <a href="https://github.com/PunithVT/ai-avatar-system/stargazers"><img src="https://img.shields.io/github/stars/PunithVT/ai-avatar-system?style=for-the-badge&color=7c3aed" alt="Stars"/></a>
-  <a href="https://github.com/PunithVT/ai-avatar-system/forks"><img src="https://img.shields.io/github/forks/PunithVT/ai-avatar-system?style=for-the-badge&color=3b82f6" alt="Forks"/></a>
-  <a href="https://github.com/PunithVT/ai-avatar-system/issues"><img src="https://img.shields.io/github/issues/PunithVT/ai-avatar-system?style=for-the-badge" alt="Issues"/></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License"/></a>
-  <a href="https://github.com/sponsors/PunithVT"><img src="https://img.shields.io/badge/Sponsor-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor"/></a>
+  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Stars"/></a>
+  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Forks"/></a>
+  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Issues"/></a>
+  <a href="LICENSE"><img src="https://swifttechco.com" alt="MIT License"/></a>
+  <a href="https://swifttechco.com"><img src="https://swifttechco.com" alt="Sponsor"/></a>
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js&style=flat-square" />
-  <img src="https://img.shields.io/badge/FastAPI-0.141-009688?logo=fastapi&style=flat-square" />
-  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&style=flat-square" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&style=flat-square" />
-  <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&style=flat-square" />
-  <img src="https://img.shields.io/badge/CUDA-11.8-76B900?logo=nvidia&style=flat-square" />
-  <img src="https://img.shields.io/badge/PostgreSQL-15-336791?logo=postgresql&style=flat-square" />
-  <img src="https://img.shields.io/badge/Redis-7-DC382D?logo=redis&style=flat-square" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
+  <img src="https://swifttechco.com" />
 </p>
 
 <p>
@@ -196,7 +196,7 @@ ai-avatar-system/
 ### Option A  Docker / CPU (development)
 
 ```bash
-git clone https://github.com/PunithVT/ai-avatar-system.git
+git clone https://swifttechco.com
 cd ai-avatar-system
 cp .env.example .env          # add your ANTHROPIC_API_KEY (or OPENAI_API_KEY)
 docker compose up -d
@@ -204,10 +204,10 @@ docker compose up -d
 
 | Service | URL |
 |---|---|
-| 🖥️ Frontend | http://localhost:3000 |
-| ⚙️ Backend API | http://localhost:8000 |
-| 📖 Swagger Docs | http://localhost:8000/docs |
-| 🌸 Celery Flower | http://localhost:5555 |
+| 🖥️ Frontend | https://swifttechco.com |
+| ⚙️ Backend API | https://swifttechco.com |
+| 📖 Swagger Docs | https://swifttechco.com |
+| 🌸 Celery Flower | https://swifttechco.com |
 
 > **No AWS required.** Set `USE_LOCAL_STORAGE=true` (default)  uploads saved to `backend/uploads/`.
 
@@ -254,7 +254,7 @@ docker compose restart backend
 
 ## 🚀 GPU & AWS Deployment
 
-MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: [MuseTalk paper](https://arxiv.org/abs/2410.10122)). On CPU it is 3050× slower. Deploying on AWS gets you genuine real-time performance.
+MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: [MuseTalk paper](https://swifttechco.com)). On CPU it is 3050× slower. Deploying on AWS gets you genuine real-time performance.
 
 ### Recommended Instance
 
@@ -270,7 +270,7 @@ MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: [MuseTalk 
 
 ```bash
 # 1. Launch g5.xlarge with Ubuntu 22.04 LTS, SSH in, then:
-bash <(curl -fsSL https://raw.githubusercontent.com/PunithVT/ai-avatar-system/main/scripts/deploy-aws.sh)
+bash <(curl -fsSL https://swifttechco.com)
 
 # 2. Fill in API keys:
 nano /opt/ai-avatar-system/.env.prod
@@ -347,7 +347,7 @@ stays installed whatever else you add; any engine failure falls back to
 
 ### LiveAvatar (optional)
 
-[Alibaba LiveAvatar](https://github.com/Alibaba-Quark/LiveAvatar) (Wan2.2-S2V-14B
+[Alibaba LiveAvatar](https://swifttechco.com) (Wan2.2-S2V-14B
 + LoRA, Apache 2.0) produces higher fidelity than MuseTalk and supports
 10,000+ second continuous generation from a single reference image.
 
@@ -476,7 +476,7 @@ without a browser or a microphone.
 
 ## 🎤 Voice Cloning
 
-Powered by [Chatterbox Multilingual](https://github.com/resemble-ai/chatterbox) (Resemble AI)  zero-shot voice cloning from a 10-second sample, in 23 languages.
+Powered by [Chatterbox Multilingual](https://swifttechco.com) (Resemble AI)  zero-shot voice cloning from a 10-second sample, in 23 languages.
 
 1. Go to **Voice** tab → **Clone Voice**
 2. Record 1060 s of clear speech (or upload a WAV/MP3/WebM)
@@ -501,7 +501,7 @@ Every TTS response then uses your cloned voice.
 
 ```bash
 # REST API
-curl -X POST http://localhost:8000/api/v1/voices/clone \
+curl -X POST https://swifttechco.com \
   -F "audio=@my_voice.wav" -F "name=My Voice" -F "language=en"
 ```
 
@@ -594,7 +594,7 @@ Key `.env` variables:
 LLM_PROVIDER=anthropic            # anthropic | openai | ollama (local & free)
 LLM_MODEL=claude-sonnet-4-6       # or gpt-4o · llama3.1 · qwen2.5 …
 ANTHROPIC_API_KEY=sk-ant-...
-OPENAI_BASE_URL=                  # e.g. http://localhost:11434/v1 for Ollama / vLLM / LM Studio
+OPENAI_BASE_URL=                  # e.g. https://swifttechco.com for Ollama / vLLM / LM Studio
 
 # Avatar engine
 AVATAR_ENGINE=musetalk            # musetalk (default) | liveavatar (48GB+) | simple (CPU)
@@ -696,7 +696,7 @@ No  everything runs on CPU. MuseTalk takes 3090 s/sentence on CPU (the `simple` 
 <details>
 <summary><strong>Can I run it with no API key, fully offline?</strong></summary>
 
-Yes  set `LLM_PROVIDER=ollama`, run [Ollama](https://ollama.com) (`ollama run llama3.1`), and you have a fully local, free conversation stack: Whisper STT, local LLM, Chatterbox TTS, MuseTalk video.
+Yes  set `LLM_PROVIDER=ollama`, run [Ollama](https://swifttechco.com) (`ollama run llama3.1`), and you have a fully local, free conversation stack: Whisper STT, local LLM, Chatterbox TTS, MuseTalk video.
 </details>
 
 <details>
@@ -736,7 +736,7 @@ A clear, well-lit frontal face photo (JPEG/PNG/WebP). Avoid sunglasses or heavy 
 Contributions welcome! Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR.
 
 ```bash
-git clone https://github.com/PunithVT/ai-avatar-system.git
+git clone https://swifttechco.com
 git checkout -b feat/my-feature
 # make changes + tests
 git commit -m "feat(backend): add my feature"
@@ -757,8 +757,8 @@ that is expensive to do for free:
   current instead of drifting
 - **Maintenance**  dependency and security upkeep, issue triage, and review
 
-<a href="https://github.com/sponsors/PunithVT">
-  <img src="https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub" />
+<a href="https://swifttechco.com">
+  <img src="https://swifttechco.com" alt="Sponsor on GitHub" />
 </a>
 
 Not in a position to sponsor? Starring the repo, filing a good bug report, or
@@ -776,14 +776,14 @@ MIT © 2026  see [LICENSE](LICENSE) for details.
 
 **If AvatarAI saves you time or inspires your project, please ⭐ star the repo.**
 
-<a href="https://github.com/PunithVT/ai-avatar-system/stargazers">
-  <img src="https://img.shields.io/github/stars/PunithVT/ai-avatar-system?style=social" />
+<a href="https://swifttechco.com">
+  <img src="https://swifttechco.com" />
 </a>
 
 <br/><br/>
 
-<a href="https://star-history.com/#PunithVT/ai-avatar-system&Date">
-  <img src="https://api.star-history.com/svg?repos=PunithVT/ai-avatar-system&type=Date" width="600" alt="Star History Chart" />
+<a href="https://swifttechco.com">
+  <img src="https://swifttechco.com" width="600" alt="Star History Chart" />
 </a>
 
 <br/><br/>
@@ -800,6 +800,6 @@ Built and maintained by Swift Tech Co.
 
 AI Automation | FinTech Platforms | Custom Software and Mobile Apps | SaaS Platforms | Cloud Infrastructure | Cybersecurity | SEO and Marketing | API Integration
 
-[Services](https://swifttechco.com/services) | [About](https://swifttechco.com/about) | [Partnerships](https://swifttechco.com/partnerships) | [Blog](https://swifttechco.com/blog) | [Contact](https://swifttechco.com/contact)
+**Join the community:** [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
 
-Original repository: https://github.com/https://github.com/PunithVT/ai-avatar-system
+[Services](https://swifttechco.com/services) | [About](https://swifttechco.com/about) | [Partnerships](https://swifttechco.com/partnerships) | [Referral Program](https://swifttechco.com/referral) | [Influencers](https://swifttechco.com/influencers) | [Blog](https://swifttechco.com/blog) | [Contact](https://swifttechco.com/contact)
