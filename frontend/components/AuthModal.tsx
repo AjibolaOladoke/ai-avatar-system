@@ -1,0 +1,296 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import { Sparkles, Loader2, Eye, EyeOff, UserPlus, LogIn, User } from 'lucide-react'
+import { toast } from 'react-hot-toast'
+import { api } from '@/lib/api'
+import { useStore } from '@/store/useStore'
+import type { ApiError } from '@/lib/types'
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+export function AuthModal() {
+  const { setAuth } = useStore()
+  const [tab, setTab] = useState<'login' | 'register'>('login')
+  const [isLoading, setIsLoading] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const dialogRef = useRef<HTMLDivElement>(null)
+
+  // Focus trap: keep Tab cycling inside the modal, and auto-focus the first
+  // input when it opens. ESC is intentionally not used to close — there's
+  // nothing to fall back to (the auth gate IS the app).
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+
+    const focusables = () =>
+      Array.from(dialog.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
+        .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null)
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      const els = focusables()
+      if (els.length === 0) return
+      const first = els[0]
+      const last = els[els.length - 1]
+      const active = document.activeElement as HTMLElement | null
+      if (e.shiftKey) {
+        if (active === first || !dialog.contains(active)) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else if (active === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    // Defer focusing the first input until after the modal mounts
+    const t = window.setTimeout(() => {
+      const el = focusables()[1] || focusables()[0]
+      el?.focus()
+    }, 50)
+
+    document.addEventListener('keydown', onKeyDown)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.clearTimeout(t)
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [])
+
+  // Login fields
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+
+  // Register fields
+  const [regEmail, setRegEmail] = useState('')
+  const [regUsername, setRegUsername] = useState('')
+  const [regPassword, setRegPassword] = useState('')
+  const [regFullName, setRegFullName] = useState('')
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!loginEmail || !loginPassword) return
+    setIsLoading(true)
+    try {
+      const data = await api.login(loginEmail, loginPassword)
+      const profile = await api.getProfile()
+      setAuth(data.access_token, profile)
+      toast.success(`Welcome back, ${profile.username}!`, { icon: '👋' })
+    } catch (err: unknown) {
+      toast.error((err as ApiError)?.response?.data?.detail || 'Invalid credentials')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!regEmail || !regUsername || !regPassword) return
+    setIsLoading(true)
+    try {
+      await api.register({ email: regEmail, username: regUsername, password: regPassword, full_name: regFullName })
+      // Auto-login after register
+      const data = await api.login(regEmail, regPassword)
+      const profile = await api.getProfile()
+      setAuth(data.access_token, profile)
+      toast.success(`Account created! Welcome, ${profile.username}!`, { icon: '🎉' })
+    } catch (err: unknown) {
+      toast.error((err as ApiError)?.response?.data?.detail || 'Registration failed')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const continueAsGuest = async () => {
+    // Ask the backend for a real (throwaway) account instead of faking a
+    // client-side user. Guests used to share one global `demo-user` row,
+    // which meant every guest could see every other guest's avatars and
+    // transcripts — and it failed outright in production, where that row is
+    // never seeded. A per-guest identity is what makes the "private to you"
+    // promise below actually true.
+    setIsLoading(true)
+    try {
+      const data = await api.createGuest()
+      const profile = await api.getProfile()
+      setAuth(data.access_token, profile)
+      toast('Continuing as guest — sign up to keep your data', { icon: '👤' })
+    } catch (err: unknown) {
+      toast.error((err as ApiError)?.response?.data?.detail || 'Could not start a guest session')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-25 backdrop-blur-md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+      aria-describedby="auth-modal-desc"
+    >
+      <div ref={dialogRef} className="w-full max-w-md mx-4 card rounded-2xl p-8 animate-scale-in">
+        {/* Logo */}
+        <div className="flex flex-col items-center gap-3 mb-8">
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm">
+            <Sparkles size={22} className="text-gray-900" />
+          </div>
+          <div className="text-center">
+            <h1 id="auth-modal-title" className="text-2xl font-black text-gray-900">AvatarAI</h1>
+            <p id="auth-modal-desc" className="text-sm text-gray-500 mt-0.5">Sign in to your account</p>
+          </div>
+        </div>
+
+        {/* Tab switcher */}
+        <div className="flex gap-1 p-1 rounded-xl bg-white border border-gray-200 mb-6">
+          {(['login', 'register'] as const).map(t => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-medium transition-all duration-200
+ ${tab === t
+ ? ' text-gray-900 shadow-xs'
+ : 'text-gray-500 hover:text-gray-900'
+ }`}
+            >
+              {t === 'login' ? <><LogIn size={14} /> Sign In</> : <><UserPlus size={14} /> Register</>}
+            </button>
+          ))}
+        </div>
+
+        {/* Login form */}
+        {tab === 'login' && (
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                value={loginEmail}
+                onChange={e => setLoginEmail(e.target.value)}
+                className="input-field"
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-gray-700">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={loginPassword}
+                  onChange={e => setLoginPassword(e.target.value)}
+                  className="input-field pr-10"
+                  placeholder="••••••••"
+                  autoComplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(s => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
+            </div>
+            <button type="submit" disabled={isLoading} className="btn-primary w-full py-3 rounded-xl mt-2">
+              {isLoading ? <Loader2 size={16} className="animate-spin" /> : <LogIn size={16} />}
+              Sign In
+            </button>
+          </form>
+        )}
+
+        {/* Register form */}
+        {tab === 'register' && (
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-gray-700">Username</label>
+                <input
+                  type="text"
+                  value={regUsername}
+                  onChange={e => setRegUsername(e.target.value)}
+                  className="input-field"
+                  placeholder="cooluser"
+                  required
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-gray-700">Full Name</label>
+                <input
+                  type="text"
+                  value={regFullName}
+                  onChange={e => setRegFullName(e.target.value)}
+                  className="input-field"
+                  placeholder="Optional"
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                value={regEmail}
+                onChange={e => setRegEmail(e.target.value)}
+                className="input-field"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium text-gray-700">Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={regPassword}
+                  onChange={e => setRegPassword(e.target.value)}
+                  className="input-field pr-10"
+                  placeholder="Min 8 characters"
+                  minLength={8}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(s => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
+            </div>
+            <button type="submit" disabled={isLoading} className="btn-primary w-full py-3 rounded-xl mt-2">
+              {isLoading ? <Loader2 size={16} className="animate-spin" /> : <UserPlus size={16} />}
+              Create Account
+            </button>
+          </form>
+        )}
+
+        {/* Divider */}
+        <div className="flex items-center gap-3 my-5">
+          <div className="flex-1 h-px bg-white" />
+          <span className="text-xs text-gray-500">or</span>
+          <div className="flex-1 h-px bg-white" />
+        </div>
+
+        {/* Guest mode */}
+        <button
+          onClick={continueAsGuest}
+          disabled={isLoading}
+          className="btn-secondary w-full py-2.5 rounded-xl text-sm disabled:opacity-60"
+        >
+          <User size={15} />
+          Continue as Guest
+        </button>
+        <p className="text-xs text-center text-gray-500 mt-3">
+          Guest data is private to you and is deleted after 48 hours of inactivity.
+        </p>
+      </div>
+    </div>
+  )
+}
