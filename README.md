@@ -6,7 +6,7 @@ This is part of the Swift Tech Co. working stack for product and engineering. It
 
 ## Images
 
-[![ai-avatar-system](images/preview.png)](https://github.com/Swift-Tech-Co)
+[![ai-avatar-system](images/preview.png)](https://github.com/Swift-Tech-Co/ai-avatar-system)
 
 ## 🎬 What is AvatarAI?
 
@@ -165,7 +165,7 @@ ai-avatar-system/
 ### Option A  Docker / CPU (development)
 
 ```bash
-git clone https://swifttechco.com
+git clone https://github.com/Swift-Tech-Co/ai-avatar-system
 cd ai-avatar-system
 cp .env.example .env          # add your ANTHROPIC_API_KEY (or OPENAI_API_KEY)
 docker compose up -d
@@ -173,10 +173,10 @@ docker compose up -d
 
 | Service | URL |
 |---|---|
-| 🖥️ Frontend | https://swifttechco.com |
-| ⚙️ Backend API | https://swifttechco.com |
-| 📖 Swagger Docs | https://swifttechco.com |
-| 🌸 Celery Flower | https://swifttechco.com |
+| 🖥️ Frontend | https://github.com/Swift-Tech-Co/ai-avatar-system |
+| ⚙️ Backend API | https://github.com/Swift-Tech-Co/ai-avatar-system |
+| 📖 Swagger Docs | https://github.com/Swift-Tech-Co/ai-avatar-system |
+| 🌸 Celery Flower | https://github.com/Swift-Tech-Co/ai-avatar-system |
 
 > **No AWS required.** Set `USE_LOCAL_STORAGE=true` (default)  uploads saved to `backend/uploads/`.
 
@@ -192,8 +192,6 @@ Prebuilt images are also published on every release  `ghcr.io/punithvt/ai-avatar
 ### Option B  Manual (development)
 
 ```bash
-
-
 
 ## 🚀 GPU & AWS Deployment
 
@@ -213,7 +211,7 @@ MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: MuseTalk p
 
 ```bash
 # 1. Launch g5.xlarge with Ubuntu 22.04 LTS, SSH in, then:
-bash <(curl -fsSL https://swifttechco.com)
+bash <(curl -fsSL https://github.com/Swift-Tech-Co/ai-avatar-system)
 
 # 2. Fill in API keys:
 nano /opt/ai-avatar-system/.env.prod
@@ -444,7 +442,7 @@ Every TTS response then uses your cloned voice.
 
 ```bash
 # REST API
-curl -X POST https://swifttechco.com \
+curl -X POST https://github.com/Swift-Tech-Co/ai-avatar-system \
   -F "audio=@my_voice.wav" -F "name=My Voice" -F "language=en"
 ```
 
@@ -537,7 +535,7 @@ Key `.env` variables:
 LLM_PROVIDER=anthropic            # anthropic | openai | ollama (local & free)
 LLM_MODEL=claude-sonnet-4-6       # or gpt-4o · llama3.1 · qwen2.5 …
 ANTHROPIC_API_KEY=sk-ant-...
-OPENAI_BASE_URL=                  # e.g. https://swifttechco.com for Ollama / vLLM / LM Studio
+OPENAI_BASE_URL=                  # e.g. https://github.com/Swift-Tech-Co/ai-avatar-system for Ollama / vLLM / LM Studio
 
 # Avatar engine
 AVATAR_ENGINE=musetalk            # musetalk (default) | liveavatar (48GB+) | simple (CPU)
@@ -679,7 +677,7 @@ A clear, well-lit frontal face photo (JPEG/PNG/WebP). Avoid sunglasses or heavy 
 Contributions welcome! Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a PR.
 
 ```bash
-git clone https://swifttechco.com
+git clone https://github.com/Swift-Tech-Co/ai-avatar-system
 git checkout -b feat/my-feature
 # make changes + tests
 git commit -m "feat(backend): add my feature"
@@ -698,13 +696,13 @@ MIT © 2026  see [LICENSE](LICENSE) for details.
 
 **If AvatarAI saves you time or inspires your project, please ⭐ star the repo.**
 
-<a href="https://swifttechco.com">
+<a href="https://github.com/Swift-Tech-Co/ai-avatar-system">
   
 </a>
 
 <br/><br/>
 
-<a href="https://swifttechco.com">
+<a href="https://github.com/Swift-Tech-Co/ai-avatar-system">
   
 </a>
 
@@ -728,13 +726,21 @@ Home | Services | Careers | Referral Program | Influencers | About | Contact
 
 **Connect**
 
-- Website: swifttechco.com
+- Website: https://github.com/Swift-Tech-Co/ai-avatar-system
 - LinkedIn: [linkedin.com/in/stephenoladoke](https://www.linkedin.com/in/stephenoladoke/)
 - LinkedIn (Company): [linkedin.com/company/swift-tech-co](https://www.linkedin.com/company/swift-tech-co)
 - X: [@MrOladoke](https://x.com/MrOladoke)
 - Instagram: [@mr.oladoke](https://www.instagram.com/mr.oladoke/)
 - Instagram (Company): [@swifttechco](https://www.instagram.com/swifttechco/)
 - Organization: [github.com/Swift-Tech-Co](https://github.com/Swift-Tech-Co)
+
+## Sources
+
+Compiled and maintained from upstream [PunithVT/ai-avatar-system](https://github.com/PunithVT/ai-avatar-system) under permissive open-source license.
+
+---
+
+Maintained by [Swift Tech Co.](https://github.com/Swift-Tech-Co) - [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
 
 ## Sources
 
