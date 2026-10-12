@@ -743,3 +743,11 @@ Compiled and maintained from upstream [PunithVT/ai-avatar-system](https://github
 ---
 
 Maintained by [Swift Tech Co.](https://github.com/Swift-Tech-Co) - [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
+
+## Sources
+
+Compiled and maintained from upstream [PunithVT/ai-avatar-system](https://github.com/PunithVT/ai-avatar-system) under permissive open-source license.
+
+---
+
+Maintained by [Swift Tech Co.](https://github.com/Swift-Tech-Co) - [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
