@@ -1,42 +1,12 @@
-<div align="center">
+# ai-avatar-system
 
-<h1>🎭 AvatarAI  Real-Time AI Avatar Platform</h1>
+## What This Is
 
-<p><strong>Upload a photo · Clone a voice · Talk to any face in real time</strong></p>
+This is part of the Swift Tech Co. working stack for product and engineering. It gathers the ai-avatar-system notes, examples and fixes that keep delivery fast, and doubles as the reference map we hand to whoever picks up this thread next.
 
-<p>
-  <a href="https://swifttechco.com"></a>
-  <a href="https://swifttechco.com"></a>
-  <a href="https://swifttechco.com"></a>
-  <a href="LICENSE"></a>
-</p>
+## Images
 
-<p>
-  
-  
-  
-  
-  
-  
-  
-  
-</p>
-
-<p>
-  <a href="#-quick-start">Quick Start</a> ·
-  <a href="#-features">Features</a> ·
-  <a href="#-architecture">Architecture</a> ·
-  <a href="#-gpu--aws-deployment">GPU / AWS Deploy</a> ·
-  <a href="#-api-reference">API</a> ·
-  <a href="#-roadmap">Roadmap</a>
-</p>
-
-> **The most complete open-source AI avatar / digital human system.**
-> Real-time talking-head lip-sync · Zero-shot voice cloning · Multi-LLM · Runs 100% locally or on AWS.
-
-</div>
-
----
+[![ai-avatar-system](images/preview.png)](https://github.com/Swift-Tech-Co)
 
 ## 🎬 What is AvatarAI?
 
@@ -222,43 +192,12 @@ Prebuilt images are also published on every release  `ghcr.io/punithvt/ai-avatar
 ### Option B  Manual (development)
 
 ```bash
-# Backend
 
-## Images
 
-[![ai-avatar-system](https://opengraph.githubassets.com/1/PunithVT/ai-avatar-system)](https://www.swifttechco.com)
-
-cd backend
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-cp ../.env.example ../.env
-alembic upgrade head
-uvicorn main:app --reload --port 8000
-
-# Frontend (new terminal)
-cd frontend
-npm install
-npm run dev
-```
-
-### Option C  Enable MuseTalk Lip-Sync
-
-```bash
-# Download models (~9 GB, one-time)
-bash scripts/setup_musetalk.sh
-
-# Set in .env
-AVATAR_ENGINE=musetalk
-
-# Restart
-docker compose restart backend
-```
-
----
 
 ## 🚀 GPU & AWS Deployment
 
-MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: [MuseTalk paper](https://swifttechco.com)). On CPU it is 3050× slower. Deploying on AWS gets you genuine real-time performance.
+MuseTalk achieves **30 FPS at 256×256 on a V100-class GPU** (source: MuseTalk paper). On CPU it is 3050× slower. Deploying on AWS gets you genuine real-time performance.
 
 ### Recommended Instance
 
@@ -351,7 +290,7 @@ stays installed whatever else you add; any engine failure falls back to
 
 ### LiveAvatar (optional)
 
-[Alibaba LiveAvatar](https://swifttechco.com) (Wan2.2-S2V-14B
+Alibaba LiveAvatar (Wan2.2-S2V-14B
 + LoRA, Apache 2.0) produces higher fidelity than MuseTalk and supports
 10,000+ second continuous generation from a single reference image.
 
@@ -480,7 +419,7 @@ without a browser or a microphone.
 
 ## 🎤 Voice Cloning
 
-Powered by [Chatterbox Multilingual](https://swifttechco.com) (Resemble AI)  zero-shot voice cloning from a 10-second sample, in 23 languages.
+Powered by Chatterbox Multilingual (Resemble AI)  zero-shot voice cloning from a 10-second sample, in 23 languages.
 
 1. Go to **Voice** tab → **Clone Voice**
 2. Record 1060 s of clear speech (or upload a WAV/MP3/WebM)
@@ -700,7 +639,7 @@ No  everything runs on CPU. MuseTalk takes 3090 s/sentence on CPU (the `simple` 
 <details>
 <summary><strong>Can I run it with no API key, fully offline?</strong></summary>
 
-Yes  set `LLM_PROVIDER=ollama`, run [Ollama](https://swifttechco.com) (`ollama run llama3.1`), and you have a fully local, free conversation stack: Whisper STT, local LLM, Chatterbox TTS, MuseTalk video.
+Yes  set `LLM_PROVIDER=ollama`, run Ollama (`ollama run llama3.1`), and you have a fully local, free conversation stack: Whisper STT, local LLM, Chatterbox TTS, MuseTalk video.
 </details>
 
 <details>
@@ -785,14 +724,22 @@ AI Automation | FinTech Platforms | Custom Software and Mobile Apps | SaaS Platf
 
 **Join our community on Telegram:** [t.me/+Qt_eFvkb2rliMzNh](https://t.me/+Qt_eFvkb2rliMzNh)
 
-[Home](https://www.swifttechco.com) | [Services](https://www.swifttechco.com/services) | [Careers](https://www.swifttechco.com/careers) | [Referral Program](https://www.swifttechco.com/referral) | [Influencers](https://www.swifttechco.com/influencers) | [About](https://www.swifttechco.com/about) | [Contact](https://www.swifttechco.com/contact)
+Home | Services | Careers | Referral Program | Influencers | About | Contact
 
 **Connect**
 
-- Website: [swifttechco.com](https://www.swifttechco.com)
+- Website: swifttechco.com
 - LinkedIn: [linkedin.com/in/stephenoladoke](https://www.linkedin.com/in/stephenoladoke/)
 - LinkedIn (Company): [linkedin.com/company/swift-tech-co](https://www.linkedin.com/company/swift-tech-co)
 - X: [@MrOladoke](https://x.com/MrOladoke)
 - Instagram: [@mr.oladoke](https://www.instagram.com/mr.oladoke/)
 - Instagram (Company): [@swifttechco](https://www.instagram.com/swifttechco/)
 - Organization: [github.com/Swift-Tech-Co](https://github.com/Swift-Tech-Co)
+
+## Sources
+
+Compiled and maintained from upstream [PunithVT/ai-avatar-system](https://github.com/PunithVT/ai-avatar-system) under permissive open-source license.
+
+---
+
+Maintained by [Swift Tech Co.](https://github.com/Swift-Tech-Co) - [Telegram](https://t.me/+Qt_eFvkb2rliMzNh)
